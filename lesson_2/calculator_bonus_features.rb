@@ -3,7 +3,7 @@ MESSAGES = YAML.load_file('calculator_messages.yml')
 def messages(message, lang='us')
   MESSAGES[lang][message]
 end
-LANGUAGE = 'us'
+LANGUAGE = 'jp'
 
 def format(key)
   message = messages(key, LANGUAGE)
