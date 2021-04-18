@@ -56,5 +56,4 @@ loop do
   next
 end
 
-prompt "Game over. You won #{player_wins} times, the computer won #{computer_wins} times, and there were #{ties} ties."
-prompt 'Thanks for playing!'
+prompt 'Game Over. Thanks for playing!'
