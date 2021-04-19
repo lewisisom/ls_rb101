@@ -1,59 +1,83 @@
-ROCK_PAPER_SCISSORS = %w(rock paper scissors lizard spock)
-R_P_S_L_SP = %w(r p s l sp)
+CHOICES = %w(rock paper scissors lizard spock)
+CHOICES_SHORTENED = %w(r p s l sp)
+WIN_SCORE = 5
+WIN_RULES = { 'scissors': ['paper', 'lizard'],
+              'paper': ['rock', 'spock'],
+              'rock': ['lizard', 'scissors'],
+              'lizard': ['spock', 'paper'],
+              'spock': ['scissors', 'rock'] }
 
 def prompt(message)
   puts "=> #{message}"
 end
 
-def win(first, second)
-  (first == 'scissors' && second == 'paper') ||
-    (first == 'paper' && second == 'rock') ||
-    (first == 'rock' && second == 'lizard') ||
-    (first == 'lizard' && second == 'spock') ||
-    (first == 'spock' && second == 'scissors') ||
-    (first == 'scissors' && second == 'lizard') ||
-    (first == 'lizard' && second == 'paper') ||
-    (first == 'paper' && second == 'spock') ||
-    (first == 'spock' && second == 'rock') ||
-    (first == 'rock' && second == 'scissors')
-end
-
 def display_results(player, computer)
-  if win(player, computer)
+  if win?(player, computer)
     prompt 'You won!'
-  elsif win(computer, player)
+  elsif win?(computer, player)
     prompt 'Computer wins!'
   else
     prompt "It's a tie!"
   end
 end
 
+def win?(first, second)
+  WIN_RULES[first.to_sym].include?(second)
+end
+
+def change_score(player, computer, score)
+  if win?(player, computer)
+    score[:player] += 1
+  elsif win?(computer, player)
+    score[:computer] += 1
+  else
+    score[:ties] += 1
+  end
+end
+
 choice = ''
 computer_choice = ''
+score = { player: 0,
+          computer: 0,
+          ties: 0 }
+
+prompt "Hello! Welcome to Rock-Paper-Scissors-Lizard-Spock!
+    Defeat the computer #{WIN_SCORE} times to become the Champion!
+    This is what beats what: Scissors -> Paper -> Rock -> Lizard ->
+    Spock -> Scissors -> Lizard -> Paper -> Spock -> Rock -> Scissors."
 
 loop do
   loop do
-    prompt "Choose one: #{ROCK_PAPER_SCISSORS.join(', ')}.
-   You can also just type 'r', 'p', 's', 'l', 'sp'."
-    choice = gets.chomp
-    if R_P_S_L_SP.include?(choice)
-      choice = ROCK_PAPER_SCISSORS[R_P_S_L_SP.index(choice)]
+    loop do
+      prompt "Choose one: #{CHOICES.join(', ')}.
+    You can also just type 'r', 'p', 's', 'l', 'sp'."
+      choice = gets.chomp
+      if CHOICES_SHORTENED.include?(choice)
+        choice = CHOICES[CHOICES_SHORTENED.index(choice)]
+      end
+      break if CHOICES.include?(choice)
+      prompt 'Please enter a valid input.'
+      next
     end
-    break if ROCK_PAPER_SCISSORS.include?(choice)
-    prompt 'Please enter a valid input.'
+
+    computer_choice = CHOICES.sample
+    prompt "You chose #{choice} and the computer chose #{computer_choice}...
+  ~----------------------------------------------------~"
+    sleep(1.2)
+
+    display_results(choice, computer_choice)
+    change_score(choice, computer_choice, score)
+    prompt "Game over. You won this game! You are the Champion! Good job!!" if score[:player] >= WIN_SCORE
+    prompt "Game over. The computer this game. Better luck next time!" if score[:computer] >= WIN_SCORE
+    break if score[:player] >= WIN_SCORE || score[:computer] >= WIN_SCORE
+    prompt "Current score is #{score[:player]} wins, #{score[:computer]} loses, and #{score[:ties]} ties. Next Round!"
     next
   end
 
-  computer_choice = ROCK_PAPER_SCISSORS.sample
-  prompt "You chose #{choice} and the computer chose #{computer_choice}..."
-  prompt '-----------------------------------------------------'
-
-  display_results(choice, computer_choice)
-
-  prompt "Would you like to play again? ('yes'/'no')"
+  prompt "Would you like to play again? ('y'/'n')"
   play_again = gets.chomp
-  break unless play_again.downcase == 'yes'
+  break unless play_again.downcase.start_with?('y')
   next
 end
 
-prompt 'Game Over. Thanks for playing!'
+prompt "Hope you enjoyed my RPSLS game. Thanks for playing!"
