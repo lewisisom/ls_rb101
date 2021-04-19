@@ -35,13 +35,9 @@ def change_score(player, computer, score)
   end
 end
 
-
-
 choice = ''
 computer_choice = ''
-score = { player: 0,
-          computer: 0,
-          ties: 0 }
+score = { player: 0, computer: 0, ties: 0 }
 
 system('clear')
 prompt "Hello! Welcome to Rock-Paper-Scissors-Lizard-Spock!
@@ -81,9 +77,7 @@ loop do
   prompt "Would you like to play again? ('y'/'n')"
   play_again = gets.chomp
   break unless play_again.downcase.start_with?('y')
-  score = { player: 0,
-          computer: 0,
-          ties: 0 }
+  score = { player: 0, computer: 0, ties: 0 }
   prompt "Alright let's do this again!"
   next
 end
