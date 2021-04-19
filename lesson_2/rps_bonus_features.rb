@@ -56,7 +56,7 @@ loop do
         choice = CHOICES[CHOICES_SHORTENED.index(choice)]
       end
       break if CHOICES.include?(choice)
-      prompt 'Please enter a valid input.'
+      prompt 'Please enter a valid input. Only lowercase letters are allowed.'
       next
     end
 
