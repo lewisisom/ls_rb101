@@ -35,28 +35,35 @@ def change_score(player, computer, score)
   end
 end
 
+def welcome
+  system('clear')
+  prompt "Hello! Welcome to Rock-Paper-Scissors-Lizard-Spock!
+    Defeat the computer #{WIN_SCORE} times to become the Champion!
+    This is what beats what: Scissors -> Paper -> Rock -> Lizard ->
+    Spock -> Scissors -> Lizard -> Paper -> Spock -> Rock -> Scissors."
+  prompt "Press the enter key to begin!"
+  gets
+  system('clear')
+end
+
 choice = ''
 computer_choice = ''
 score = { player: 0, computer: 0, ties: 0 }
 
-system('clear')
-prompt "Hello! Welcome to Rock-Paper-Scissors-Lizard-Spock!
-    Defeat the computer #{WIN_SCORE} times to become the Champion!
-    This is what beats what: Scissors -> Paper -> Rock -> Lizard ->
-    Spock -> Scissors -> Lizard -> Paper -> Spock -> Rock -> Scissors."
+welcome
 
 loop do
   loop do
     loop do
       prompt "Choose one: #{CHOICES.join(', ')}.
     You can also just type 'r', 'p', 's', 'l', 'sp'."
-      choice = gets.chomp
+      choice = gets.chomp.downcase
       system('clear')
       if CHOICES_SHORTENED.include?(choice)
         choice = CHOICES[CHOICES_SHORTENED.index(choice)]
       end
       break if CHOICES.include?(choice)
-      prompt 'Please enter a valid input. Only lowercase letters are allowed.'
+      prompt 'Please enter a valid input. Do not include any whitespace.'
       next
     end
 
@@ -76,8 +83,9 @@ loop do
 
   prompt "Would you like to play again? ('y'/'n')"
   play_again = gets.chomp
-  break unless play_again.downcase.start_with?('y')
+  break if play_again.downcase.start_with?('n')
   score = { player: 0, computer: 0, ties: 0 }
+  system('clear')
   prompt "Alright let's do this again!"
   next
 end
