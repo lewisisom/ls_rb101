@@ -35,12 +35,15 @@ def change_score(player, computer, score)
   end
 end
 
+
+
 choice = ''
 computer_choice = ''
 score = { player: 0,
           computer: 0,
           ties: 0 }
 
+system('clear')
 prompt "Hello! Welcome to Rock-Paper-Scissors-Lizard-Spock!
     Defeat the computer #{WIN_SCORE} times to become the Champion!
     This is what beats what: Scissors -> Paper -> Rock -> Lizard ->
@@ -52,6 +55,7 @@ loop do
       prompt "Choose one: #{CHOICES.join(', ')}.
     You can also just type 'r', 'p', 's', 'l', 'sp'."
       choice = gets.chomp
+      system('clear')
       if CHOICES_SHORTENED.include?(choice)
         choice = CHOICES[CHOICES_SHORTENED.index(choice)]
       end
@@ -77,6 +81,10 @@ loop do
   prompt "Would you like to play again? ('y'/'n')"
   play_again = gets.chomp
   break unless play_again.downcase.start_with?('y')
+  score = { player: 0,
+          computer: 0,
+          ties: 0 }
+  prompt "Alright let's do this again!"
   next
 end
 
