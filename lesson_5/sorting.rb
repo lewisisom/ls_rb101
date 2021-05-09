@@ -28,3 +28,6 @@ p [['a', 'cat', 'b', 'c'], ['b', 2], ['a', 'car', 'd', 3], ['a', 'car', 'd']].so
 
 # Look at https://ruby-doc.org/core-3.0.0/Enumerable.html#method-i-sort
 # for sort and sort_by
+
+# this is a kind of a waste of a file, so next lesson page probably
+# wont have one. idk.
