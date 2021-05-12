@@ -75,7 +75,7 @@ loop do
     display_results(choice, computer_choice)
     change_score(choice, computer_choice, score)
     prompt "Game over. You won this game! You are the Champion! Good job!!" if score[:player] >= WIN_SCORE
-    prompt "Game over. The computer this game. Better luck next time!" if score[:computer] >= WIN_SCORE
+    prompt "Game over. The computer won this game. Better luck next time!" if score[:computer] >= WIN_SCORE
     break if score[:player] >= WIN_SCORE || score[:computer] >= WIN_SCORE
     prompt "Current score is #{score[:player]} wins, #{score[:computer]} loses, and #{score[:ties]} ties. Next Round!"
     next
