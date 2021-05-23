@@ -11,7 +11,7 @@ def prompt(message)
   puts "=> #{message}"
 end
 
-def display_results(player, computer)
+def disresults(player, computer)
   if win?(player, computer)
     prompt 'You won!'
   elsif win?(computer, player)
@@ -46,6 +46,21 @@ def welcome
   system('clear')
 end
 
+def someone_won?(score)
+  score[:player] >= WIN_SCORE || score[:computer] >= WIN_SCORE
+end
+
+def play_again?(score)
+  prompt "Would you like to play again? ('y'/'n')"
+  again = gets.chomp
+  until again.downcase.start_with?('n') || again.downcase.start_with?('y')
+  return false if again.downcase.start_with?('n')
+  score = { player: 0, computer: 0, ties: 0 }
+  system('clear')
+  prompt "Alright let's do this again!"
+  true 
+end
+
 choice = ''
 computer_choice = ''
 score = { player: 0, computer: 0, ties: 0 }
@@ -64,7 +79,6 @@ loop do
       end
       break if CHOICES.include?(choice)
       prompt 'Please enter a valid input. Do not include any whitespace.'
-      next
     end
 
     computer_choice = CHOICES.sample
@@ -72,22 +86,15 @@ loop do
   ~----------------------------------------------------~"
     sleep(1.2)
 
-    display_results(choice, computer_choice)
+    disresults(choice, computer_choice)
     change_score(choice, computer_choice, score)
     prompt "Game over. You won this game! You are the Champion! Good job!!" if score[:player] >= WIN_SCORE
     prompt "Game over. The computer won this game. Better luck next time!" if score[:computer] >= WIN_SCORE
-    break if score[:player] >= WIN_SCORE || score[:computer] >= WIN_SCORE
+    break if someone_won?(score)
     prompt "Current score is #{score[:player]} wins, #{score[:computer]} loses, and #{score[:ties]} ties. Next Round!"
-    next
   end
 
-  prompt "Would you like to play again? ('y'/'n')"
-  play_again = gets.chomp
-  break if play_again.downcase.start_with?('n')
-  score = { player: 0, computer: 0, ties: 0 }
-  system('clear')
-  prompt "Alright let's do this again!"
-  next
+  break unless play_again?(score)
 end
 
 prompt "Hope you enjoyed my RPSLS game. Thanks for playing!"
