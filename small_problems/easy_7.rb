@@ -1,4 +1,5 @@
 =begin
+=end
 
 # Problem 1 - Combine two arrays, alternating adding elements:
 def interleave(a1, a2)
@@ -157,5 +158,3 @@ p penultimate(['array lets go!'])
 p penultimate({ key: 'how about', key2: 'hashes?' })
 p penultimate(true)
 p penultimate(nil)
-
-=end
