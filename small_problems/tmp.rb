@@ -42,19 +42,33 @@
 # - initialize another new array named lights_array,
 # assigned to an array with all false values, the size
 # of x (if 3 is input, this will be [false, false, false])
-# - 
+# - huh, what's next?
 
 def on_lights(num)
-	on_lights = []
 	lights_array = Array.new(num, false)
+	
+	p lights_array
+	lights_array[0] = !lights_array[0]
+	lights_array[1] = !lights_array[1]
+	lights_array[2] = !lights_array[2]
+	lights_array[3] = !lights_array[3]
 
-	num.times { |i| p i}
+	p lights_array
+	lights_array[1] = !lights_array[1]
+	lights_array[3] = !lights_array[3]
 
+	p lights_array
+	lights_array[2] = !lights_array[2]
+
+	p lights_array
+	lights_array[3] = !lights_array[3]
+
+	lights_array
 end
 
 # Test Cases
 
-p on_lights(5) == [1, 4]
-p on_lights(10) #== [1, 4, 9]
-p on_lights(3) #== [1]
+#p on_lights(5) #== [1, 4]
+#p on_lights(10) #== [1, 4, 9]
+#p on_lights(3) #== [1]
 p on_lights(4) #== [1, 4]
