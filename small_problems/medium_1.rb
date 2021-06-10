@@ -225,14 +225,88 @@ diamond(3)
 
 # Medium 1 Problem # 6 Stack Machine Interpretation
 
-# Understanding the Problem
-
-# Algorithm
-
-# Code
-
 def minilang(instruction)
-  p instrution
+  stack = []
+  register = 0
+  tokens = instruction.split
+
+  tokens.each do |token|
+    case token
+    when 'PUSH' then stack.push(register)
+    when 'ADD' then register += stack.pop
+    when 'SUB' then register -= stack.pop
+    when 'MULT' then register *= stack.pop
+    when 'DIV' then register /= stack.pop
+    when 'MOD' then register %= stack.pop
+    when 'POP' then register = stack.pop
+    when 'PRINT' then puts register 
+    else register = token.to_i
+    end
+  end
 end
 
+#minilang('5 PUSH 12 ADD PRINT')
+# 17
+#minilang('PRINT')
+# 0
+#minilang('-3 PUSH 5 SUB PRINT')
+# 8
+#minilang('3 PUSH PUSH 7 DIV MULT PRINT')
+# 6
+#minilang('3 PUSH 4 PUSH 5 PUSH PRINT ADD PRINT POP PRINT ADD PRINT')
+# 5
+# 10
+# 4
+# 7
+
+# Medium 1 Problem # 7 Word to Digit
+
+NUMBERS = { 'zero': '0', 'one': '1', 'two': '2', 'three': '3', 'four': '4',
+           'five': '5', 'six': '6', 'seven': '7', 'eight': '8', 'nine': '9'}
+
+def word_to_digit(words)
+  NUMBERS.keys.each do |word|
+    words.gsub!(/\b#{word}\b/, NUMBERS[word])
+  end
+  words
+end
+
+p word_to_digit('Please call me at five five five one two three four. Thanks.') == 'Please call me at 5 5 5 1 2 3 4. Thanks.'
+
 =end
+
+# Medium 1 Problem # 8 Fibonacci Numbers (Recursion)
+
+FIB_CHEAT_CODE = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
+
+def fibonacci(num)
+  FIB_CHEAT_CODE[num]
+end
+# ^^^^ works perfectly fine as long as num is max 12 ^^^
+
+def e_fibonacci(num)
+  return 0 if num <= 0
+  sequence = [0, 1] if num >= 1
+  (num - 1).times do
+    sequence << sequence[-1] + sequence[-2]
+  end
+  sequence[num]
+end
+
+def fibonacci(num)
+  sequence = [0, 1]
+  (num - 1).times { sequence << sequence[-1] + sequence[-2] }
+  sequence[num]
+end
+
+# 0 1 2 3 4 5 6 7  8  9  10 11 12
+# 0 1 1 2 3 5 8 13 21 34 55 89 144
+p fibonacci(0) == 0
+p fibonacci(1) == 1
+p fibonacci(2) == 1
+p fibonacci(3) == 2
+p fibonacci(4) == 3
+p fibonacci(5) == 5
+p fibonacci(12) == 144
+p fibonacci(20) == 6765
+p fibonacci(200_000)
