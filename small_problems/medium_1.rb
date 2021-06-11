@@ -381,7 +381,72 @@ p fibonacci_last(99999999)
 
 # Done with Medium 1 Problems
 
-=end
-
 # Going back to Diamonds! (Problem 5)
 
+# - write ruby method to display a diamond shape
+# made of star symbols in a n by n grid, n being
+# the input positive odd integer for the size
+
+# - first, lets make a super simple program that
+# isnt actually the solution, just as a stepping stone
+# - write a ruby method to display a n by n grid
+# star symbols, n being a positive odd integer.
+
+# def not_diamond(size)
+#   puts Array.new(size, '*' * size)
+# end
+
+# not_diamond(3)
+# not_diamond(9)
+
+# - good, that works, now lets write an algorithm
+# for the fullblown program
+
+# - we need something to do this:
+# ['***', '***', '***']
+# index 0 distance 1
+# [' * ', '***', '***']
+# grid[0][0..0+1]
+# - actually, we'll change things
+# ['   ', '   ', '   '] ==> [' * ', '   ', '   ']
+# - actually, no, we'll change things again
+# - our data structure is bad, instead of a grid,
+# only worry about two things: the number of spaces
+# and the number of stars on a row, and don't worry
+# about the grid space that would come after the stars
+# size 3
+# row 0 = 1 spaces 1 stars
+# row 1 = 0 spaces 3 stars
+# row 2 = 1 spaces 1 stars
+# size 9
+# row 0 = 4 spaces 1 stars
+# row 1 = 3 spaces 3 stars
+# row 2 = 2 spaces 5 stars
+# row 3 = 1 spaces 7 stars
+# row 4 = 0 spaces 9 stars
+# row 5 = 1 spaces 7 stars
+# row 6 = 2 spaces 5 stars
+# row 7 = 3 spaces 3 stars
+# row 8 = 4 spaces 1 stars
+# - the formula for spaces and stars is:
+# spaces = distance
+# stars = size - distance * 2
+# - and the formula for distance is:
+# distance = (middle - row).abs
+
+def diamond(size)
+  size.times do |row|
+    spaces = ( size / 2 - row).abs
+    stars = size - spaces * 2
+    puts ' ' * spaces + '*' * stars
+  end
+end
+
+diamond(3)
+diamond(9)
+
+# - there we go, diamonds exercise done as well
+# - update: i cleaned up the solution, now it
+# looks beautiful, im happy
+
+=end
