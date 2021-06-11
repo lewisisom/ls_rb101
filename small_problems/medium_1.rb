@@ -273,8 +273,6 @@ end
 
 p word_to_digit('Please call me at five five five one two three four. Thanks.') == 'Please call me at 5 5 5 1 2 3 4. Thanks.'
 
-=end
-
 # Medium 1 Problem # 8 Fibonacci Numbers (Recursion)
 
 FIB_CHEAT_CODE = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
@@ -310,3 +308,80 @@ p fibonacci(5) == 5
 p fibonacci(12) == 144
 p fibonacci(20) == 6765
 p fibonacci(200_000)
+
+# Execpt I didn't even use recursion...
+# Here is another solution, but actually trying recursion:
+
+def fibonacci(num)
+  return num if num <= 1
+  fibonacci(num-1) + fibonacci(num-2)
+end
+
+p fibonacci(0) == 0
+p fibonacci(1) == 1
+p fibonacci(2) == 1
+p fibonacci(3) == 2
+p fibonacci(4) == 3
+p fibonacci(5) == 5
+p fibonacci(12) == 144
+p fibonacci(20) == 6765
+
+# Medium 1 Problem # 10 Fibonacci Last Digit
+
+# - return the last digit of the nth fibonacci number,
+# basically the same as the previous exercise, except
+# we only want the final digit.
+
+# input: any positive integer
+# output: a new integer of length one
+
+# - lets make a temp solution just stealing the
+# previous exercises solution
+
+def old_fibonacci_last(num)
+  sequence = [0, 1]
+  (num - 1).times { sequence << sequence[-1] + sequence[-2] }
+  sequence[num].to_s[-1].to_i
+end
+
+# - 
+# 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
+# 0 1 1 2 3 5 8 3 1 4 5  9  4  3  7  0  7  7  4  1  5  6  1  7  8  5  3  8  1
+# 
+
+# - our goal is to make extremely large values of num
+# execute almost instantly. 123 million should work fine.
+
+def old_fibonacci_last(num)
+  num %= 60
+  sequence = [0, 1]
+  2.upto(num) { sequence = [sequence.last, sequence.sum % 10] }
+  sequence.last
+end
+
+def fibonacci_last(num)
+  '011235831459437077415617853819099875279651673033695493257291'[num%60]
+end
+
+p fibonacci_last(15) # 0
+p fibonacci_last(100) # 5
+p fibonacci_last(100_001) # 1
+p fibonacci_last(123456789) # 4
+
+p fibonacci_last(60)
+p fibonacci_last(240)
+
+p fibonacci_last(12347)
+p fibonacci_last(47)
+
+p fibonacci_last(123456789987745) # 5
+
+p fibonacci_last(100000000000000004568797654325678965430000000)
+p fibonacci_last(99999999)
+
+# Done with Medium 1 Problems
+
+=end
+
+# Going back to Diamonds! (Problem 5)
+
