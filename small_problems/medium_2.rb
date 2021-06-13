@@ -1,5 +1,3 @@
-=begin
-
 # Medium 2 Problem # 1 Longest Sentence
 
 # - we have to have a program that can accept a
@@ -370,5 +368,3 @@ p sum_square_difference(1) == 0
 p sum_square_difference(100) == 25164150
 
 # Done with Medium 2 !
-
-=end
