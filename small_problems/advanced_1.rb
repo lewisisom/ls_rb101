@@ -30,10 +30,10 @@
 # to the input text file. we'll call this madlib
 # - that's it program done
 
-nouns = File.read('/home/lewis/ls_rb101/small_problems/nouns.txt').gsub(/[\t\n\r]/, ' ').split
-adjectives = File.read('/home/lewis/ls_rb101/small_problems/adjectives.txt').gsub(/[\t\n\r]/, ' ').split
-verbs = File.read('/home/lewis/ls_rb101/small_problems/verbs.txt').gsub(/[\t\n\r]/, ' ').split
-adverbs = File.read('/home/lewis/ls_rb101/small_problems/adverbs.txt').gsub(/[\t\n\r]/, ' ').split
+NOUNS = File.read('/home/lewis/ls_rb101/small_problems/nouns.txt').gsub(/[\t\n\r]/, ' ').split
+ADJECTIVES = File.read('/home/lewis/ls_rb101/small_problems/adjectives.txt').gsub(/[\t\n\r]/, ' ').split
+VERBS = File.read('/home/lewis/ls_rb101/small_problems/verbs.txt').gsub(/[\t\n\r]/, ' ').split
+ADVERBS = File.read('/home/lewis/ls_rb101/small_problems/adverbs.txt').gsub(/[\t\n\r]/, ' ').split
 # These word lists are taken from https://icebreakerideas.com/mad-libs.
 
 story = File.read('/home/lewis/ls_rb101/small_problems/story.txt').gsub(/[\t\n\r]/, ' ').split
@@ -43,16 +43,18 @@ def madlib(text)
     next unless word.start_with?('[')
     case
     when word.start_with?('[noun]')
-      # replace the [x] part with [x].random
+      word.gsub!('[noun]', NOUNS.sample)
     when word.start_with?('[adjective]')
-      # replace the [x] part with [x].random
+      word.gsub!('[adjective]', ADJECTIVES.sample)
     when word.start_with?('[verb]')
-      # replace the [x] part with [x].random
-    when word.start_with?('[adverbs]')
-      # replace the [x] part with [x].random
+      word.gsub!('[verb]', VERBS.sample)
+    when word.start_with?('[adverb]')
+      word.gsub!('[adverb]', ADVERBS.sample)
     end
   end
 
+  puts text.join(' ').split('\n', 3)
+  
   # puts text except break every 70 characters
   # to make a nice column of text for our story
 end
