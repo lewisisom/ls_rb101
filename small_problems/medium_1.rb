@@ -433,7 +433,7 @@ p fibonacci_last(99999999)
 # stars = size - distance * 2
 # - and the formula for distance is:
 # distance = (middle - row).abs
-
+=end
 def diamond(size)
   size.times do |row|
     spaces = ( size / 2 - row).abs
@@ -448,5 +448,3 @@ diamond(9)
 # - there we go, diamonds exercise done as well
 # - update: i cleaned up the solution, now it
 # looks beautiful, im happy
-
-=end
