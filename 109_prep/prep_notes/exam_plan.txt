@@ -37,7 +37,6 @@ timer on every question. Use PEDAC, do not go straight
 into coding no matter what. Follow every step of the
 PEDAC process completely dogmatically.
 - Once this list is empty, I shall take the assessment.
-
 For the actual written assessment day:
 - Set an overall timer for 2 hours and 40 minutes
 before the test begins, and verify that it is correct,
