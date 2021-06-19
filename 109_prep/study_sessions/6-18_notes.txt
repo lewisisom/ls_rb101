@@ -44,9 +44,3 @@ everything thats happening, if something is not used,
 you dont really need to say it, just dont make sure to miss anything
 - .map .each .select, the method is passing in the block, etc
 - just say whats important thats happening in each questions
-
-
-
-6-19-2021 Launch School Notes (on a .txt file lol)
-
-- 
