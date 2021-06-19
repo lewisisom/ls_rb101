@@ -1,0 +1,52 @@
+On the 109 exam
+
+- all of the questions will be
+specific about what they are asking
+- basically teach whats happening,
+even if its obvious to you, explain it
+- rephrase question and answer the question,
+make sure to actually provide an asnwer to the actual question,
+re-read the question to ensure its answered
+- over-preparing is not a bad thing,
+dont be over-confident, or else you will receiev a Not yet grade
+- 101-109 is the most content of any exam
+- an important thing is PRECISISION,
+using the right terminology, like truthiness vs true,
+or assignemnt and stuff, small precirision stuf liek that
+- time management is also a big one,
+theres good articles about it,
+so basically, Pay attention to the time
+during the exam
+- practice doing 3-hour exam
+simulations to get used to it
+-  
+I GOT STUCK,
+on line 19, the fix method is called
+and s is passed into the method, and the
+return value is assigned to the local variable t
+- 
+TEST MYSELF, EXPLAIN THE DIFFERENCE BETWEENE
+def t(f)
+  f = 'ad'
+end
+def t(f)
+  f = 'ad'
+  f[0] = 'a'
+end
+def t(f)
+  f[0] = 'a'
+end
+###
+- You do not have to regurstatge the same thing
+  over and over again, in the exam just say "like I said, blah blah"
+- dont make a luandry lsit, you dont have to list
+everything thats happening, if something is not used,
+you dont really need to say it, just dont make sure to miss anything
+- .map .each .select, the method is passing in the block, etc
+- just say whats important thats happening in each questions
+
+
+
+6-19-2021 Launch School Notes (on a .txt file lol)
+
+- 

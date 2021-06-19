@@ -1,0 +1,63 @@
+This is what I will do before taking the RB109
+written assessment. Once I have done these, I shall
+take the assessment, unless I am not ready.
+
+- Attend atleast 1 additional study session for RB109,
+whether that's TA-led or peer-led, and whether
+its aimed towards the written or oral assessment.
+- Systematically redo every single Small Problem,
+including all Further Explorations, and doing every
+subset including Advanced and Debugging.
+- Watch all 3 assessment prep Ruby videos,
+which is located on the study guide assignment,
+and take thorough notes on them, pausing every
+couple minutes and testing various things in IRB.
+- Review all of the following RB101 assignments,
+and be thorough and feel confident about the material.
+https://launchschool.com/lessons/a0f3cd44/assignments/9984760e
+https://launchschool.com/lessons/a0f3cd44/assignments/fff0b9db
+https://launchschool.com/lessons/a0f3cd44/assignments/9e9e907c
+https://ruby-doc.org/core-2.7.2/Array.html#method-i-sort
+https://launchschool.com/lessons/85376b6d/assignments/3034b4e0
+https://launchschool.com/lessons/85376b6d/assignments/d86be6b5
+- Retake all RB101 Quizzes, Lesson 1 through Lesson 6 Quiz,
+and score 100% on all of them in a row in under 20 minutes
+each, and if there is anything that's not 100%, review the
+appropiate material and come back and get pure 100%'s.
+- Read through / review Srdjan Corcic's Blog Series,
+all parts 1 through 4, and stop to test a couple things
+here and there and write down the most important points.
+- Work through all of Chris Larwood's Practice Problems,
+a Google Doc sheet with dozens of problems you'll see
+on the written exam, every question answered thoroughly
+in under 8 minutes, so set a timer for 8 minutes each.
+- Work through every single Codewars Practice Problem,
+there is a Google Doc with 66 problems. Set a 20 minute
+timer on every question. Use PEDAC, do not go straight
+into coding no matter what. Follow every step of the
+PEDAC process completely dogmatically.
+- Once this list is empty, I shall take the assessment.
+
+For the actual written assessment day:
+- Set an overall timer for 2 hours and 40 minutes
+before the test begins, and verify that it is correct,
+and set another one for 2 hours and 55 minutes, which will
+be the time I will submit my exam. I should be finished with
+all questions at the 2:40 mark, and finished reviewing my
+answers at the 2:55 mark. I will not submit my assessment
+any later than 2:55 even if it is incomplete.
+- Set question-block timers every 40 minutes. I should
+be done with 6 questions every time the 40 minute timer
+goes off.
+- During the review section, go over the first 3 questions
+first no matter what, just to make sure I didn't make a
+nervous mistake settling into the exam.
+- Bring two mice with me, the wired mouse and wireless mouse,
+just to be sure that I don't fail because my mouse dies.
+- Refill my water bottle and go to the bathroom the
+minute before taking my assessment.
+- I will begin my assessment at exactly 9:00 AM on the
+day right after I have done everything in my checklist,
+this gives me a certain time I will do it, because I'll
+always put it off if I don't, it will begin at 9:00 AM.
+- I can do it.
