@@ -63,4 +63,7 @@ puts b
 # is because variable initialization is possible within
 # a block.
 
+# Example 3
+
+# Return? Output? Why?
 
